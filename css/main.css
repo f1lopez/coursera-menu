@@ -33,3 +33,21 @@ height: 4em;
     border:1px solid white;
     height: 4em;
 }
+
+@media (max-width: 767px) {
+    body {
+        background-color: #00b794;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        background-color: #1c3643;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        background-color: #97c93e;
+    }
+}
