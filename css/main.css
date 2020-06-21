@@ -1,0 +1,35 @@
+.footer{
+    background:linear-gradient(90deg, #1c3643 0, #273b47 25%, #1e5372);
+    color:white;
+}
+header{
+    background:linear-gradient(90deg, #1c3643 0, #273b47 25%, #1e5372)!important;
+}
+#img-header{
+    width: 90px;
+}
+#text-ajeel{
+    color:#97c93e;
+}
+
+
+.columna1_reto1 div{
+background: #00b794;
+border:1px solid white;
+height: 4em;
+}
+.columna1_reto2 div{
+    background: #fdca6d;
+    border:1px solid white;
+    height: 4em;
+}
+.columna2_reto2 div{
+    background: #e6b761;
+    border:1px solid white;
+    height: 4em;
+}
+.columna1_reto3 div{
+    background: #d62f31;
+    border:1px solid white;
+    height: 4em;
+}
