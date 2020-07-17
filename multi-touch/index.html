@@ -32,12 +32,14 @@ var logEvents = false;
 // Touch Point cache
 var tpCache = new Array();
 
+
+
 function enableLog(ev) {
   logEvents = logEvents ? false : true;
 }
 
 function log(name, ev, printTargetIds) {
-  var o = document.getElementsByTagName('output')[0];
+  /*var o = document.getElementsByTagName('output')[0];
   var s = name + ": touches = " + ev.touches.length +
                 " ; targetTouches = " + ev.targetTouches.length +
                 " ; changedTouches = " + ev.changedTouches.length;
@@ -49,7 +51,7 @@ function log(name, ev, printTargetIds) {
       s += "... id = " + ev.targetTouches[i].identifier + " <br>";
     }
     o.innerHTML += s;
-  }
+  }*/
 }
 
 function clearLog(event) {
@@ -57,12 +59,18 @@ function clearLog(event) {
  o.innerHTML = "";
 }
 
+
 function update_background(ev) {
  // Change background color based on the number simultaneous touches
  // in the event's targetTouches list:
  //   yellow - one tap (or hold)
  //   pink - two taps
  //   lightblue - more than two taps
+
+ const type_device = /(MacPPC|MacIntel|Mac_PowerPC|Macintosh|Mac OS X)/i.test(window.navigator.userAgent);
+ var o = document.getElementsByTagName('output')[0];
+ o.innerHTML = "";
+ o.innerHTML = type_device ? "touch en MAC" : "Touch";
  switch (ev.targetTouches.length) {
    case 1:
      // Single tap`
@@ -172,16 +180,15 @@ function init() {
  set_handlers("target2");
  set_handlers("target3");
  set_handlers("target4");
+ 
+console.log(os.networkInterfaces());
 }
 
 </script>
 <body onload="init();">
 <h1>Multi-touch interaction</h1>
  <!-- Create some boxes to test various gestures. -->
- <div id="target1"> Tap, Hold or Swipe me 1</div>
- <div id="target2"> Tap, Hold or Swipe me 2</div>
- <div id="target3"> Tap, Hold or Swipe me 3</div>
- <div id="target4"> Tap, Hold or Swipe me 4</div>
+ <div id="target1"> Tocar </div>
 
  <!-- UI for logging/debugging -->
  <button id="log" onclick="enableLog(event);">Start/Stop event logging</button>
