@@ -1,0 +1,117 @@
+<html ng-app="MyApp">
+	<head>
+	<title>Simulación</title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+	<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="dist/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="Chart.min.js"></script>
+	<script src="main.js"></script>
+	
+	</head>
+	
+	<body  ng-controller="simulador">	
+
+	<div class="container">
+	<div>
+		<h1>SIMULADOR MODELO INCENTIVO DE LECTURA<img src="img/escudo_ud.png"></h1>
+		<hr>
+		<span class="lead text-info"></span>
+		<button ng-click="valores()" class="btn btn-warning btn-xs">Valores iniciales</button><br><br>
+	<table>
+	<tr>
+	<td><label>Tiempo en el sistema</label></td>
+	<td><input type="text" size="10" ng-model="tiemposistema">
+	<button ng-click="tiempomas()" class="btn btn-success btn-xs">+</button>
+	<button ng-click="tiempomenos()" class="btn btn-danger btn-xs">-</button>
+	
+	<br><br></td><td><th rowspan="10">
+		<div id="canvas-container" style="width:50%;">
+        <canvas id="" width="150" height="10"></canvas></th>
+	</td><td>
+	<button ng-click="graficar()" class="btn btn-default btn-lg" value="Hide">Graficar</button>
+	 <th rowspan="10">
+
+	 	<div id="canvas-container" style="width:50%;">
+        <canvas id="buyers" width="500" height="350"></canvas>
+    </div>
+	 </th>
+	</td> 
+	</tr>
+	<td><label>Edad del niño</label></td>	
+	<td><select style="width:120px" ng-model="edad">
+		<option value="7">7 años</option>
+		<option value="8">8 años</option>
+		<option value="9">9 años</option>
+		<option value="10">10 años</option>
+		<option value="11">11 años</option>
+		</select>
+		<br><br></td>
+	</tr>
+	<td><label>Capacidad lectura (%)</label></td>	
+	<td><input type="text" size="10" ng-model="capacidad">
+	<button ng-click="capacidadmas()" class="btn btn-success btn-xs">+</button>
+	<button ng-click="capacidadmenos()" class="btn btn-danger btn-xs">-</button>
+	<br><br></td>
+	</tr>
+	<td><label>Motivación lectura (%)</label></td>	
+	<td><input type="text" size="10" ng-model="motivacion">
+	<button ng-click="motivacionmas()" class="btn btn-success btn-xs">+</button>
+	<button ng-click="motivacionmenos()" class="btn btn-danger btn-xs">-</button>
+	<br><br></td>
+	</tr>
+	<td><label>Espacio lectura</label></td>	
+	<td><select style="width:120px" ng-model="espacio">
+		<option value="1">Adecuado</option>
+		<option value="2">Incomodo</option>
+		<option value="3">Inapropiado</option></select>
+		<button ng-click="espaciolec()" class="btn btn-info btn-xs">calcular</button>
+		<br><br></td>
+	</tr>
+	<td><label>Tipo lectura</label></td>	
+	<td><select style="width:120px" ng-model="tipo">
+		<option value="1">Favorita</option>
+		<option value="2">Casual</option>
+		<option value="3">Aburrida</option></select>
+		<button ng-click="tipolec()" class="btn btn-info btn-xs">calcular</button>
+		<br><br></td>
+	</tr>
+	<td><label>Incentivo de lectura</label></td>	
+	<td><select style="width:120px" ng-model="incentivo">
+		<option value="1">Más TV</option>
+		<option value="2">Más VideoGame</option>
+		<option value="3">Nada</option></select>
+		<button ng-click="incentivos()" class="btn btn-info btn-xs">calcular</button>
+		<br><br></td>
+	</tr>
+	<td><label>tiempo lectura (Minutos)</label></td>	
+	<td><input type="text" size="10" ng-model="tiempolectura">
+	<button ng-click="tiempolecmas()" class="btn btn-success btn-xs">+</button>
+	<button ng-click="tiempolecmenos()" class="btn btn-danger btn-xs">-</button>
+	<br><br></td>
+	</tr>
+	<td><label>Nivel alfabetización (%)</label></td>	
+	<td><input type="text" size="10" ng-model="alfa">
+	<button ng-click="alfamas()" class="btn btn-success btn-xs">+</button>
+	<button ng-click="alfamenos()" class="btn btn-danger btn-xs">-</button>
+	<br><br></td>
+	</tr>
+	<td><label>Porcentaje conocimiento</label></td>	
+	<td><input type="text" size="10" ng-model="conocimiento">
+	<button ng-click="conocimientomas()" class="btn btn-success btn-xs">+</button>
+	<button ng-click="conocimientomenos()" class="btn btn-danger btn-xs">-</button>
+	</td>
+	</tr>
+	</table>
+	<hr>	
+	<h3 class="text-success">Porcentaje de incentivo {{resultado1}} %</h3>
+	
+	</div>
+    </div>
+
+    &copy; A & N 2016 TGS
+
+		</body>
+
+	
+</html>
