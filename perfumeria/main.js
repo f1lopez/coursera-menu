@@ -15,12 +15,24 @@ angular.module("MyApp",[])
                         $scope.tiempolectura
                         $scope.alfa
                         $scope.conocimiento
-                        $scope.edad 
+                        $scope.edad
                         $scope.contador=1;
                         $scope.intensidad = 1;
                         $scope.tipoIntensidad = 'ligero';
                         $scope.tipoFlores = [];
                         $scope.tipoFrutas = [];
+                        $scope.tipoHierbas = [];
+                        $scope.tipoDiversos = [];
+                        $scope.sexo = 1;
+                        $scope.solicitud = true;
+                        $scope.estilo = 0;
+                        $scope.fragancia = 0;
+                        $scope.totalPerfume = 0;
+                        $scope.nombre = '';
+                        $scope.apellido = '';
+                        $scope.correo = '';
+                        $scope.celular = '';
+                        $scope.contacto = false;
 
                         var y1 = "";
                         var x1 = "";
@@ -1342,19 +1354,19 @@ angular.module("MyApp",[])
                     $scope.intensidad = $scope.intensidad > 4 ? 5 : $scope.intensidad + 1; 
                     switch ($scope.intensidad) {
                         case 1:
-                            $scope.tipoIntensidad = 'ligero';
+                            $scope.tipoIntensidad = 'Ligero';
                             break;
                         case 2:
-                            $scope.tipoIntensidad = 'fresco';
+                            $scope.tipoIntensidad = 'Fresco';
                             break;
                         case 3:
-                            $scope.tipoIntensidad = 'medio';
+                            $scope.tipoIntensidad = 'Medio';
                             break;
                         case 4:
-                            $scope.tipoIntensidad = 'fuerte';
+                            $scope.tipoIntensidad = 'Fuerte';
                             break;
                         case 5:
-                            $scope.tipoIntensidad = 'intenso';
+                            $scope.tipoIntensidad = 'Intenso';
                             break;
                     }
 
@@ -1383,9 +1395,7 @@ angular.module("MyApp",[])
                     let existe = $scope.tipoFlores.indexOf( flor )
                     if (existe<0) {
                         $scope.tipoFlores.push(flor);
-                      
                     }else{
-                       // var i = $scope.tipoFlores.indexOf( flor );
                         $scope.tipoFlores.splice( existe, 1 );
                     }
                 }
@@ -1394,12 +1404,62 @@ angular.module("MyApp",[])
                     let existe = $scope.tipoFrutas.indexOf( fruta )
                     if (existe<0) {
                         $scope.tipoFrutas.push(fruta);
-                      
                     }else{
-                       // var i = $scope.tipoFlores.indexOf( flor );
                         $scope.tipoFrutas.splice( existe, 1 );
                     }
                 }
+
+                $scope.hierbas = function (hierba){
+                    let existe = $scope.tipoHierbas.indexOf( hierba )
+                    if (existe<0) {
+                        $scope.tipoHierbas.push(hierba);                      
+                    }else{
+                        $scope.tipoHierbas.splice( existe, 1 );
+                    }
+                }
+
+                $scope.diversos = function (diverso){
+                    let existe = $scope.tipoDiversos.indexOf( diverso )
+                    if (existe<0) {
+                        $scope.tipoDiversos.push(diverso);                      
+                    }else{
+                        $scope.tipoDiversos.splice( existe, 1 );
+                    }
+                }
+
+                $scope.procesar = function (){
+                    $scope.solicitud = false;
+                    let valorFragancia = $scope.fragancia > 0 ? 3000 : 0;
+                    let valorEstilo = $scope.fragancia > 0 ? 3000 : 0;
+                    $scope.totalPerfume = 10000 + 2000 + valorFragancia + ($scope.tipoFlores.length * 5000)
+                    + ($scope.tipoFrutas.length * 5000) + ($scope.tipoHierbas.length * 5000) 
+                    + ($scope.tipoDiversos.length * 5000) + valorEstilo;
+                }
+
+                $scope.regresar = function (){
+                    $scope.solicitud = true;
+                }
+
+                $scope.finalizar = function (){
+                    $scope.contacto = true;
+                }
+
+                $scope.enviar = function (){
+                    $scope.nombre = '';
+                    $scope.apellido = '';
+                    $scope.correo = '';
+                    $scope.celular = '';
+                    document.getElementById("nombre").value = '';
+                    document.getElementById("apellido").value = '';
+                    document.getElementById("correo").value = '';
+                    document.getElementById("celular").value = '';
+                    document.getElementById("enviar").setAttribute("disabled","disabled");
+                }
+
+                $scope.regresarPedido = function (){
+                    $scope.contacto = false;
+                }
+                
                        
         });
 

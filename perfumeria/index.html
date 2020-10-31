@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="dist/Chart.bundle.min.js"></script>
 	<script type="text/javascript" src="Chart.min.js"></script>
 	<script src="main.js"></script>
+	<link rel="stylesheet" href="main.css">
 	
 	</head>
 	
@@ -14,29 +15,36 @@
 
 	<div class="container">
 	<div>
-		<h1 class="text-center">PERFUMERIA</h1>
+		<img class="img-logo" src="img/perfume-logo.png">
+		<h1 class="text-center">DULCE FRAGANCIA</h1>
 		<hr>
 		<span class="lead text-info"></span>
 		<ul class="nav nav-tabs">
-			<li ng-click="tab_uno()" id="tab_uno" class="active"><a href="#dish-one">Contactenos</a></li>
-			<li ng-click="tab_dos()" id="tab_dos"><a href="#dish-two">Información legal</a></li>
-			<li ng-click="tab_tres()" id="tab_tres"><a  href="#dish-tree">Diséñalo tu mismo</a></li>
-			<li ng-click="tab_cuatro()" id="tab_cuatro"><a  href="#">Catalogo</a></li>
+			<li ng-click="tab_uno()" id="tab_uno" class="active"><a href="#view-uno">Contáctenos</a></li>
+			<li ng-click="tab_dos()" id="tab_dos"><a href="#view-dos">A cerca de nostros</a></li>
+			<li ng-click="tab_tres()" id="tab_tres"><a  href="#view-tres">Diséñalo tu mismo</a></li>
+			<li ng-click="tab_cuatro()" id="tab_cuatro"><a  href="#view-cuatro">Catalogo</a></li>
 		  </ul>
 
 		  <section class="container dishes">
             <div class="row">
                 <article style="display: block;" id="view-uno" class="dish col-xs-12">
-                    <div><h2>A cerca de nostros</h2></div>
-					<p>nombre</p>
-					<p>Representante</p>
-					<p>nit</p>
+					<p><h2>Dulce Fragancia</h2></p>
+					<p><strong>2020-1101-01</strong></p>
+					<p><h4>Encuéntranos en:</h4></p>
+					<p>Bogotá DC</p>
+					<p># 53B, cra 25 #2032</p>
+					<p>Teléfono: 311 599 7014</p>
                 </article>
                 <article style="display: none;" id="view-dos" class="dish col-xs-12">
-                    <div><h2>Legal</h2></div>
-                    <h3>Camara de comercio</h3>
-                </article>
+                    <div><h2>Nosotros</h2></div>
+					<h4>Misión</h4>
+					<p>Dulce fragancia es una empresa con innovación en cuanto a perfumes que queremos impactar en el mercado, con nuevos aromas en perfumes para el uso diario y la buena presentación personal.</p>
+					<h4>Visión</h4>
+					<p>Ser una de las mejores empresas dedicadas a satisfacer los gustos de las personas con posicionamiento global tanto nacional, cumpliendo con los estádares de calidad</p>
+				</article>
                 <article style="display: none;" id="view-tres" class="dish col-xs-12">
+					<div ng-if="solicitud">
 					<div><h2>Crea tu propio perfume</h2></div>
 					<p>
 						Diseñar un perfume personalizado te tomara un momento. Te guiaremos paso a paso para crear una fragancia que refleje tu personalidad y tus preferencias. Una fragancia única para ti, con los mejores ingredientes. Nadie en el mundo olerá como tu.
@@ -45,9 +53,9 @@
 					<br>
 					<h4>¿Para quién es el perfume?</h4>
 					<select style="width:120px" ng-model="sexo">
-						<option value="1">Mujer</option>
+						<option value="1">Unisex</option>
 						<option value="2">Hombre</option>
-						<option value="3">Unisex</option>
+						<option value="3">Mujer</option>
 					</select>
 					<br>
 					<br>
@@ -65,9 +73,9 @@
 						<option value="1">Floral profundo</option>
 						<option value="2">Floral suave</option>
 						<option value="3">Frutal</option>
-						<option value="3">Aromático</option>
-						<option value="3">Cítrico</option>
-						<option value="3">Oriental</option>
+						<option value="4">Aromático</option>
+						<option value="5">Cítrico</option>
+						<option value="6">Oriental</option>
 					</select>
 					<br>
 					<br>
@@ -85,7 +93,6 @@
 						{{flor}}
 					</li>
 					<br>
-					<br>
 					<h5>Frutas</h5>
 					<button ng-click="frutas('Mango')" class="btn btn-danger btn-xs">Mango</button>
 					<button ng-click="frutas('Frutas rojos')" class="btn btn-danger btn-xs">Frutas rojos</button>
@@ -98,6 +105,131 @@
 						{{fruta}}
 					</li>
 					<br>
+					<h5>Aromas verdes</h5>
+					<button ng-click="hierbas('Sabila')" class="btn btn-info btn-xs">Sábila</button>
+					<button ng-click="hierbas('Hierba buena')" class="btn btn-info btn-xs">Hierba buena</button>
+					<button ng-click="hierbas('Hierba recien cortada')" class="btn btn-info btn-xs">Hierba recien cortada</button>
+					<button ng-click="hierbas('Eucalipto')" class="btn btn-info btn-xs">Eucalipto</button>
+					<button ng-click="hierbas('Aloe vera')" class="btn btn-info btn-xs">Aloe vera</button>
+					<br>
+					<span ng-if="tipoHierbas.length > 0">Tu selección: </span>
+					<li class="animate-repeat" ng-repeat="hierba in tipoHierbas">
+						{{hierba}}
+					</li>
+					<br>
+					<h5>Otros aromas</h5>
+					<button ng-click="diversos('Vainilla')" class="btn btn-warning btn-xs">Vainilla</button>
+					<button ng-click="diversos('Cafe')" class="btn btn-warning btn-xs">Café</button>
+					<button ng-click="diversos('Madera')" class="btn btn-warning btn-xs">Madera</button>
+					<button ng-click="diversos('Citrico')" class="btn btn-warning btn-xs">Cítrico</button>
+					<button ng-click="diversos('Lila')" class="btn btn-warning btn-xs">Lila</button>
+					<br>
+					<span ng-if="tipoDiversos.length > 0">Tu selección: </span>
+					<li class="animate-repeat" ng-repeat="diverso in tipoDiversos">
+						{{diverso}}
+					</li>
+					<br>
+					<h4>Cuéntanos tu estilo</h4>
+					<label>Selecciona una estilo</label>
+					<select style="width:120px" ng-model="estilo">
+						<option value="7">Natural</option>
+						<option value="1">Contemporaneo</option>
+						<option value="2">Rudo</option>
+						<option value="3">Cool</option>
+						<option value="4">Alegre</option>
+						<option value="5">Tímido</option>
+						<option value="6">Versatil</option>
+					</select>
+					<br>
+					<div class="text-center">
+						<button ng-click="procesar()" class="btn btn-default btn-lg" value="Hide">Cotizar</button>
+					</div>
+					</div>
+					<div ng-if="!solicitud">
+						<div ng-if="!contacto">
+							<div class="text-center">
+								<br>
+								<button ng-click="regresar()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
+							</div>
+							<span><h1>¡Ya casi terminamos!</h1></span>
+							<h2>Estos fueron los elementos que seleccionaste:</h2>
+							<p>Es para 
+								<span ng-if="sexo==1">Unisex $10.000</span>
+								<span ng-if="sexo==2">Hombre $10.000</span>
+								<span ng-if="sexo==3">Mujer $10.000</span>
+							</p>
+							<p>Intensidad: {{tipoIntensidad}} $2.000</p>
+							<p>Fragancia: 
+								<span ng-if="fragancia==0">Ninguno</span>
+								<span ng-if="fragancia==1">Floral profundo $3.000</span>
+								<span ng-if="fragancia==2">Floral suave $3.000</span>
+								<span ng-if="fragancia==3">Frutal $3.000</span>
+								<span ng-if="fragancia==4">Aromático $3.000</span>
+								<span ng-if="fragancia==5">Cítrico $3.000</span>
+								<span ng-if="fragancia==6">Oriental $3.000</span>
+							</p>
+							<p>Flores: 
+								<span ng-if="tipoFlores.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="fruta in tipoFlores">
+									{{fruta}} $5.000
+								</li>
+							</p>
+							<p>Frutas: 
+								<span ng-if="tipoFrutas.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="fruta in tipoFrutas">
+									{{fruta}} $5.000
+								</li>
+							</p>
+							<p>Aromas verdes: 
+								<span ng-if="tipoHierbas.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="hierba in tipoHierbas">
+									{{hierba}} $5.000
+								</li>
+							</p>
+							<p>Otros aromas: 
+								<span ng-if="tipoDiversos.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="diverso in tipoDiversos">
+									{{diverso}} $5.000
+								</li>
+							</p>
+							<p>Tu Estilo: 
+								<span ng-if="estilo==0">Ninguno</span>
+								<span ng-if="estilo==7">Natural $3.000</span>
+								<span ng-if="estilo==1">Contemporaneo $3.000</span>
+								<span ng-if="estilo==2">Rudo $3.000</span>
+								<span ng-if="estilo==3">Cool $3.000</span>
+								<span ng-if="estilo==4">Alegre $3.000</span>
+								<span ng-if="estilo==5">Tímido $3.000</span>
+								<span ng-if="estilo==6">Versatil $3.000</span>
+							</p>
+							<h3>Total: ${{totalPerfume}}</h3>
+							<br>
+							<div class="text-center">
+								<button ng-click="finalizar()" class="btn btn-success btn-lg" value="Hide">Terminar</button>
+							</div>	
+						</div>
+						<div ng-if="contacto">
+							<div class="text-center">
+								<br>
+								<button ng-click="regresarPedido()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
+							</div>
+							<h2>Llena los siguientes datos y en breve nos comunicaremos contigo</h2>
+							<input type="text" size="25" id="nombre" ng-model="nombre" placeholder="Nombres">
+							<br><br>
+							<input type="text" size="25" id="apellido" ng-model="apellido" placeholder="Apellido">
+							<br><br>
+							<input type="email" size="25" id="correo" ng-model="correo" placeholder="Correo">
+							<br><br>
+							<input type="number" size="25" id="celular" ng-model="celular" placeholder="Celular">
+							<br><br>
+							<div class="text-center">
+								<button ng-click="enviar()" id="enviar" class="btn btn-success btn-lg" value="Hide">Enviar</button>
+							</div>	
+						</div>
+						
+					</div>
+					
+					
 				</article>
 				<article style="display: none;" id="view-cuatro" class="dish col-xs-12">
                     <div><h2></h2></div>
@@ -199,7 +331,7 @@
     </div>
 <br>
 <br>
-    <p class="text-center">&copy; perfumeria</p>
+    <p class="text-center">&copy; Dulce fragancia</p>
 
 		</body>
 
