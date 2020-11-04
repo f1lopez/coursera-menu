@@ -4,14 +4,14 @@
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 	<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
-	<script src="main1.js"></script>
+	<script src="main.js"></script>
 	<link rel="stylesheet" href="main.css">
 	
 	</head>
 	
 	<body ng-controller="simulador">	
 
-	<!--div class="container">
+	<div class="container">
 		<img class="img-logo" src="img/perfume-logo.png">
 		<h1 class="text-center">DULCE FRAGANCIA</h1>
 		<hr>
@@ -25,7 +25,7 @@
 
 		<section class="container views">
             <div class="row">
-				<!--Vista o pantalla Contáctenos >
+				<!--Vista o pantalla Contáctenos -->
                 <article style="display: block;" id="view-uno" class="dish col-xs-12">
 					<p><h2>Dulce Fragancia</h2></p>
 					<p><strong>2020-1101-01</strong></p>
@@ -45,104 +45,104 @@
 				<!--Vista o pantalla Diséñalo tu mismo -->
                 <article style="display: none;" id="view-tres" class="dish col-xs-12">
 					<div ng-if="solicitud">
-					<div><h2>Crea tu propio perfume</h2></div>
-					<p>
-						Diseñar un perfume personalizado te tomara un momento. Te guiaremos paso a paso para crear una fragancia que refleje tu personalidad y tus preferencias. Una fragancia única para ti, con los mejores ingredientes. Nadie en el mundo olerá como tu.
-					</p>
-					<br><br>
-					<h4>¿Para quién es el perfume?</h4>
-					<select style="width:120px" ng-model="sexo">
-						<option value="1">Unisex</option>
-						<option value="2">Hombre</option>
-						<option value="3">Mujer</option>
-					</select>
-					<br><br>
-					<h4>intensidad</h4>
-					<label>Indicanos que preferencia tienes en el aroma</label>
-					<input type="text" size="5" readonly ng-model="intensidad">
-					<button ng-click="intensidadMas()" class="btn btn-success btn-xs">+</button>
-					<button ng-click="intensidadMenos()" class="btn btn-danger btn-xs">-</button>
-					<label>{{tipoIntensidad}}</label>
-					<br><br>
-					<h4>identificador de fragancia</h4>
-					<label>Selecciona una fragancia</label>
-					<select style="width:120px" ng-model="fragancia">
-						<option value="1">Floral profundo</option>
-						<option value="2">Floral suave</option>
-						<option value="3">Frutal</option>
-						<option value="4">Aromático</option>
-						<option value="5">Cítrico</option>
-						<option value="6">Oriental</option>
-					</select>
-					<br><br>
-					<h4>Ingredientes</h4>
-					<label>Eres libre de elegir tantos ingredientes quieras</label>
-					<h5>Flores</h5>
-					<button ng-click="flores('Lila')" class="btn btn-success btn-xs">Lila</button>
-					<button ng-click="flores('Violeta')" class="btn btn-success btn-xs">Violeta</button>
-					<button ng-click="flores('Rosa')" class="btn btn-success btn-xs">Rosa</button>
-					<button ng-click="flores('Margarita')" class="btn btn-success btn-xs">Margarita</button>
-					<button ng-click="flores('Lirio')" class="btn btn-success btn-xs">Lirio</button>
-					<br>
-					<span ng-if="tipoFlores.length > 0">Tu selección: </span>
-					<li class="animate-repeat" ng-repeat="flor in tipoFlores">
-						{{flor}}
-					</li>
-					<br>
-					<h5>Frutas</h5>
-					<button ng-click="frutas('Mango')" class="btn btn-danger btn-xs">Mango</button>
-					<button ng-click="frutas('Frutas rojos')" class="btn btn-danger btn-xs">Frutas rojos</button>
-					<button ng-click="frutas('Limón')" class="btn btn-danger btn-xs">Limón</button>
-					<button ng-click="frutas('Manzana')" class="btn btn-danger btn-xs">Manzana</button>
-					<button ng-click="frutas('Pera')" class="btn btn-danger btn-xs">Pera</button>
-					<br>
-					<span ng-if="tipoFrutas.length > 0">Tu selección: </span>
-					<li class="animate-repeat" ng-repeat="fruta in tipoFrutas">
-						{{fruta}}
-					</li>
-					<br>
-					<h5>Aromas verdes</h5>
-					<button ng-click="hierbas('Sabila')" class="btn btn-info btn-xs">Sábila</button>
-					<button ng-click="hierbas('Hierba buena')" class="btn btn-info btn-xs">Hierba buena</button>
-					<button ng-click="hierbas('Hierba recien cortada')" class="btn btn-info btn-xs">Hierba recien cortada</button>
-					<button ng-click="hierbas('Eucalipto')" class="btn btn-info btn-xs">Eucalipto</button>
-					<button ng-click="hierbas('Aloe vera')" class="btn btn-info btn-xs">Aloe vera</button>
-					<br>
-					<span ng-if="tipoHierbas.length > 0">Tu selección: </span>
-					<li class="animate-repeat" ng-repeat="hierba in tipoHierbas">
-						{{hierba}}
-					</li>
-					<br>
-					<h5>Otros aromas</h5>
-					<button ng-click="diversos('Vainilla')" class="btn btn-warning btn-xs">Vainilla</button>
-					<button ng-click="diversos('Cafe')" class="btn btn-warning btn-xs">Café</button>
-					<button ng-click="diversos('Madera')" class="btn btn-warning btn-xs">Madera</button>
-					<button ng-click="diversos('Citrico')" class="btn btn-warning btn-xs">Cítrico</button>
-					<button ng-click="diversos('Lila')" class="btn btn-warning btn-xs">Lila</button>
-					<br>
-					<span ng-if="tipoDiversos.length > 0">Tu selección: </span>
-					<li class="animate-repeat" ng-repeat="diverso in tipoDiversos">
-						{{diverso}}
-					</li>
-					<br>
-					<h4>Cuéntanos tu estilo</h4>
-					<label>Selecciona una estilo</label>
-					<select style="width:120px" ng-model="estilo">
-						<option value="7">Natural</option>
-						<option value="1">Contemporaneo</option>
-						<option value="2">Rudo</option>
-						<option value="3">Cool</option>
-						<option value="4">Alegre</option>
-						<option value="5">Tímido</option>
-						<option value="6">Versatil</option>
-					</select>
-					<br>
-					<div class="text-center">
-						<button ng-click="procesar()" class="btn btn-default btn-lg" value="Hide">Cotizar</button>
-					</div>
+						<div><h2>Crea tu propio perfume</h2></div>
+						<p>
+							Diseñar un perfume personalizado te tomara un momento. Te guiaremos paso a paso para crear una fragancia que refleje tu personalidad y tus preferencias. Una fragancia única para ti, con los mejores ingredientes. Nadie en el mundo olerá como tu.
+						</p>
+						<br><br>
+						<h4>¿Para quién es el perfume?</h4>
+						<select style="width:120px" ng-model="sexo">
+							<option value="1">Unisex</option>
+							<option value="2">Hombre</option>
+							<option value="3">Mujer</option>
+						</select>
+						<br><br>
+						<h4>intensidad</h4>
+						<label>Indicanos que preferencia tienes en el aroma</label>
+						<input type="text" size="5" readonly ng-model="intensidad">
+						<button ng-click="intensidadMas()" class="btn btn-success btn-xs">+</button>
+						<button ng-click="intensidadMenos()" class="btn btn-danger btn-xs">-</button>
+						<label>{{tipoIntensidad}}</label>
+						<br><br>
+						<h4>identificador de fragancia</h4>
+						<label>Selecciona una fragancia</label>
+						<select style="width:120px" ng-model="fragancia">
+							<option value="1">Floral profundo</option>
+							<option value="2">Floral suave</option>
+							<option value="3">Frutal</option>
+							<option value="4">Aromático</option>
+							<option value="5">Cítrico</option>
+							<option value="6">Oriental</option>
+						</select>
+						<br><br>
+						<h4>Ingredientes</h4>
+						<label>Eres libre de elegir tantos ingredientes quieras</label>
+						<h5>Flores</h5>
+						<button ng-click="flores('Lila')" class="btn btn-success btn-xs">Lila</button>
+						<button ng-click="flores('Violeta')" class="btn btn-success btn-xs">Violeta</button>
+						<button ng-click="flores('Rosa')" class="btn btn-success btn-xs">Rosa</button>
+						<button ng-click="flores('Margarita')" class="btn btn-success btn-xs">Margarita</button>
+						<button ng-click="flores('Lirio')" class="btn btn-success btn-xs">Lirio</button>
+						<br>
+						<span ng-if="tipoFlores.length > 0">Tu selección: </span>
+						<li class="animate-repeat" ng-repeat="flor in tipoFlores">
+							{{flor}}
+						</li>
+						<br>
+						<h5>Frutas</h5>
+						<button ng-click="frutas('Mango')" class="btn btn-danger btn-xs">Mango</button>
+						<button ng-click="frutas('Frutas rojos')" class="btn btn-danger btn-xs">Frutas rojos</button>
+						<button ng-click="frutas('Limón')" class="btn btn-danger btn-xs">Limón</button>
+						<button ng-click="frutas('Manzana')" class="btn btn-danger btn-xs">Manzana</button>
+						<button ng-click="frutas('Pera')" class="btn btn-danger btn-xs">Pera</button>
+						<br>
+						<span ng-if="tipoFrutas.length > 0">Tu selección: </span>
+						<li class="animate-repeat" ng-repeat="fruta in tipoFrutas">
+							{{fruta}}
+						</li>
+						<br>
+						<h5>Aromas verdes</h5>
+						<button ng-click="hierbas('Sabila')" class="btn btn-info btn-xs">Sábila</button>
+						<button ng-click="hierbas('Hierba buena')" class="btn btn-info btn-xs">Hierba buena</button>
+						<button ng-click="hierbas('Hierba recien cortada')" class="btn btn-info btn-xs">Hierba recien cortada</button>
+						<button ng-click="hierbas('Eucalipto')" class="btn btn-info btn-xs">Eucalipto</button>
+						<button ng-click="hierbas('Aloe vera')" class="btn btn-info btn-xs">Aloe vera</button>
+						<br>
+						<span ng-if="tipoHierbas.length > 0">Tu selección: </span>
+						<li class="animate-repeat" ng-repeat="hierba in tipoHierbas">
+							{{hierba}}
+						</li>
+						<br>
+						<h5>Otros aromas</h5>
+						<button ng-click="diversos('Vainilla')" class="btn btn-warning btn-xs">Vainilla</button>
+						<button ng-click="diversos('Cafe')" class="btn btn-warning btn-xs">Café</button>
+						<button ng-click="diversos('Madera')" class="btn btn-warning btn-xs">Madera</button>
+						<button ng-click="diversos('Citrico')" class="btn btn-warning btn-xs">Cítrico</button>
+						<button ng-click="diversos('Lila')" class="btn btn-warning btn-xs">Lila</button>
+						<br>
+						<span ng-if="tipoDiversos.length > 0">Tu selección: </span>
+						<li class="animate-repeat" ng-repeat="diverso in tipoDiversos">
+							{{diverso}}
+						</li>
+						<br>
+						<h4>Cuéntanos tu estilo</h4>
+						<label>Selecciona una estilo</label>
+						<select style="width:120px" ng-model="estilo">
+							<option value="7">Natural</option>
+							<option value="1">Contemporaneo</option>
+							<option value="2">Rudo</option>
+							<option value="3">Cool</option>
+							<option value="4">Alegre</option>
+							<option value="5">Tímido</option>
+							<option value="6">Versatil</option>
+						</select>
+						<br>
+						<div class="text-center">
+							<button ng-click="procesar()" class="btn btn-default btn-lg" value="Hide">Cotizar</button>
+						</div>
 					</div>
 					<div ng-if="!solicitud">
-						<div ng-if="!contacto">
+						<div ng-if="contacto">
 							<div class="text-center">
 								<br>
 								<button ng-click="regresar()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
@@ -198,18 +198,113 @@
 								<span ng-if="estilo==5">Tímido $3.000</span>
 								<span ng-if="estilo==6">Versatil $3.000</span>
 							</p>
-							<h3>Total: ${{totalPerfume}}</h3>
+							<p>
+								<span>{{nombrePerfume}} {{valorPerfume | currency}}</span>
+							</p>
+							<h3>Total: {{totalPerfume | currency}}</h3>
 							<br>
 							<div class="text-center">
 								<button ng-click="finalizar()" class="btn btn-success btn-lg" value="Hide">Terminar</button>
 							</div>	
 						</div>
-						<div ng-if="contacto">
+						<div ng-if="frascos">
+							<div class="text-center">
+								<br>
+								<button ng-click="regresarFrascos()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
+							</div>
+							<h1>Mira nuestro catalogo</h1>
+							<h3>Escoge el frasco en el que quieres tu perfume</h3>
+							<br>
+							<table>
+								<tr>
+									<td class="text-center"><h4>Frasco Passione</h4>
+										<span>$19.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_1.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Passione', 19000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Natura</h4>
+										<span>$15.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_2.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Natura', 15000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco the Hill</h4>
+										<span>$17.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_3.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco the Hill', 17000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Eldorado</h4>
+										<span>$18.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_4.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Eldorado', 18000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Selenium</h4>
+										<span>$15.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_5.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Selenium', 15000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Violet</h4>
+										<span>$14.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_6.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Violet', 14000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Platinum</h4>
+										<span>$18.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_7.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Platinum', 18000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Mercury</h4>
+										<span>$13.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_8.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Mercury', 13000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center"><h4>Frasco Dama</h4>
+										<span>$20.000</span>
+									</td>
+									<td><img class="img-catalogo-frasco" src="img/frasco_9.jpg"></td>
+									<td>
+										<button ng-click="frasco('Frasco Dama', 20000)" class="btn btn-success btn-lg" value="Hide">Comprar</button>
+									</td>
+								</tr>
+							</table>	
+						</div>
+						<div ng-if="finalPerfume">
 							<div class="text-center">
 								<br>
 								<button ng-click="regresarPedido()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
 							</div>
-							<h2>Llena los siguientes datos y en breve nos comunicaremos contigo</h2>
+							<h3>Llena los siguientes datos y en breve nos comunicaremos contigo para finalizar la compra de tu {{ nombrePerfume }}</h3>
 							<input type="text" size="25" id="nombre" ng-model="nombre" placeholder="Nombres">
 							<br><br>
 							<input type="text" size="25" id="apellido" ng-model="apellido" placeholder="Apellido">

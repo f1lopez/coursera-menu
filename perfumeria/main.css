@@ -1,7 +1,11 @@
 .img-logo {
-    height: 60px;
+    height: 100px;
     position: absolute;
 }
 .img-catalogo {
     height: 200px;
+}
+.img-catalogo-frasco {
+    height: 300px;
+    margin: 0 16px 16px 16px;
 }

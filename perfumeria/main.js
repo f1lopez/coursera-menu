@@ -20,10 +20,13 @@ angular.module("MyApp",[])
         $scope.apellido = '';
         $scope.correo = '';
         $scope.celular = '';
-        $scope.contacto = false;
+        $scope.contacto = true;
         $scope.catalogo = true;
         $scope.perfume = '';
         $scope.mensaje='';
+        $scope.nombrePerfume = '';
+        $scope.valorPerfume = '';
+        $scope.frascos = false;
 
         /*
         * Función para activar la tab y la view 1
@@ -38,6 +41,7 @@ angular.module("MyApp",[])
             document.getElementById("view-dos").style.display = "none";
             document.getElementById("view-tres").style.display = "none";
             document.getElementById("view-cuatro").style.display = "none";
+            $scope.mensaje = '';
         }
         /*
         * Función para activar la tab y la view 2
@@ -52,6 +56,7 @@ angular.module("MyApp",[])
             document.getElementById("view-dos").style.display = "block";
             document.getElementById("view-tres").style.display = "none";
             document.getElementById("view-cuatro").style.display = "none";
+            $scope.mensaje = '';
         }
         /*
         * Función para activar la tab y la view 3
@@ -66,6 +71,7 @@ angular.module("MyApp",[])
             document.getElementById("view-dos").style.display = "none";
             document.getElementById("view-tres").style.display = "block";
             document.getElementById("view-cuatro").style.display = "none";
+            $scope.mensaje = '';
         }
         /*
         * Función para activar la tab y la view 4
@@ -80,6 +86,7 @@ angular.module("MyApp",[])
             document.getElementById("view-dos").style.display = "none";
             document.getElementById("view-tres").style.display = "none";
             document.getElementById("view-cuatro").style.display = "block";
+            $scope.mensaje = '';
         }
         /*
         * Función para identicar la intensidad que elige el cliente con botón +
@@ -177,25 +184,42 @@ angular.module("MyApp",[])
         */
         $scope.procesar = function (){
             $scope.solicitud = false;
-            let valorFragancia = $scope.fragancia > 0 ? 3000 : 0;
-            let valorEstilo = $scope.fragancia > 0 ? 3000 : 0;
-            $scope.totalPerfume = 10000 + 2000 + valorFragancia + ($scope.tipoFlores.length * 5000)
-            + ($scope.tipoFrutas.length * 5000) + ($scope.tipoHierbas.length * 5000) 
-            + ($scope.tipoDiversos.length * 5000) + valorEstilo;
+            $scope.contacto = false;
+            $scope.frascos = true;
+        }
+        $scope.regresarFrascos = function (){
+            $scope.frascos = false;
+            $scope.contacto = true;
+            $scope.solicitud = true;
         }
         /*
         * Función que oculta el panel de total del perfume y muestra los ingredientes
         */
         $scope.regresar = function (){
-            $scope.solicitud = true;
+            $scope.frascos = true;
+            $scope.contacto = false;
             $scope.mensaje = '';
         }
         /*
         * Función que muestra el formulario de contacto y oculta el valor total del perfume
         */
         $scope.finalizar = function (){
-            $scope.contacto = true;
+            $scope.frascos = false;
+            $scope.contacto = false;
+            $scope.finalPerfume = true;
             $scope.mensaje = '';
+        }
+        $scope.frasco = function (nombre, valor){
+            $scope.nombrePerfume = nombre;
+            $scope.valorPerfume = valor;
+            $scope.finalPerfume = false;
+            $scope.frascos = false;
+            $scope.contacto = true;
+            let valorFragancia = $scope.fragancia > 0 ? 3000 : 0;
+            let valorEstilo = $scope.fragancia > 0 ? 3000 : 0;
+            $scope.totalPerfume = 10000 + 2000 + valorFragancia + ($scope.tipoFlores.length * 5000)
+            + ($scope.tipoFrutas.length * 5000) + ($scope.tipoHierbas.length * 5000) 
+            + ($scope.tipoDiversos.length * 5000) + valorEstilo + $scope.valorPerfume;
         }
         /*
         * Función que limpia el formulario de contacto
@@ -220,7 +244,8 @@ angular.module("MyApp",[])
         * Función que regresa del formulario de registro al de total del perfume
         */
         $scope.regresarPedido = function (){
-            $scope.contacto = false;
+            $scope.finalPerfume = false;
+            $scope.contacto = true;
             $scope.mensaje = '';
         }
         /*
