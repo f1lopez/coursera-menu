@@ -142,71 +142,6 @@
 						</div>
 					</div>
 					<div ng-if="!solicitud">
-						<div ng-if="contacto">
-							<div class="text-center">
-								<br>
-								<button ng-click="regresar()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
-							</div>
-							<span><h1>¡Ya casi terminamos!</h1></span>
-							<h2>Estos fueron los elementos que seleccionaste:</h2>
-							<p>Es para 
-								<span ng-if="sexo==1">Unisex $10.000</span>
-								<span ng-if="sexo==2">Hombre $10.000</span>
-								<span ng-if="sexo==3">Mujer $10.000</span>
-							</p>
-							<p>Intensidad: {{tipoIntensidad}} $2.000</p>
-							<p>Fragancia: 
-								<span ng-if="fragancia==0">Ninguno</span>
-								<span ng-if="fragancia==1">Floral profundo $3.000</span>
-								<span ng-if="fragancia==2">Floral suave $3.000</span>
-								<span ng-if="fragancia==3">Frutal $3.000</span>
-								<span ng-if="fragancia==4">Aromático $3.000</span>
-								<span ng-if="fragancia==5">Cítrico $3.000</span>
-								<span ng-if="fragancia==6">Oriental $3.000</span>
-							</p>
-							<p>Flores: 
-								<span ng-if="tipoFlores.length==0">Ninguno</span>
-								<li class="animate-repeat" ng-repeat="fruta in tipoFlores">
-									{{fruta}} $5.000
-								</li>
-							</p>
-							<p>Frutas: 
-								<span ng-if="tipoFrutas.length==0">Ninguno</span>
-								<li class="animate-repeat" ng-repeat="fruta in tipoFrutas">
-									{{fruta}} $5.000
-								</li>
-							</p>
-							<p>Aromas verdes: 
-								<span ng-if="tipoHierbas.length==0">Ninguno</span>
-								<li class="animate-repeat" ng-repeat="hierba in tipoHierbas">
-									{{hierba}} $5.000
-								</li>
-							</p>
-							<p>Otros aromas: 
-								<span ng-if="tipoDiversos.length==0">Ninguno</span>
-								<li class="animate-repeat" ng-repeat="diverso in tipoDiversos">
-									{{diverso}} $5.000
-								</li>
-							</p>
-							<p>Tu Estilo: 
-								<span ng-if="estilo==0">Ninguno</span>
-								<span ng-if="estilo==7">Natural $3.000</span>
-								<span ng-if="estilo==1">Contemporaneo $3.000</span>
-								<span ng-if="estilo==2">Rudo $3.000</span>
-								<span ng-if="estilo==3">Cool $3.000</span>
-								<span ng-if="estilo==4">Alegre $3.000</span>
-								<span ng-if="estilo==5">Tímido $3.000</span>
-								<span ng-if="estilo==6">Versatil $3.000</span>
-							</p>
-							<p>
-								<span>{{nombrePerfume}} {{valorPerfume | currency}}</span>
-							</p>
-							<h3>Total: {{totalPerfume | currency}}</h3>
-							<br>
-							<div class="text-center">
-								<button ng-click="finalizar()" class="btn btn-success btn-lg" value="Hide">Terminar</button>
-							</div>	
-						</div>
 						<div ng-if="frascos">
 							<div class="text-center">
 								<br>
@@ -298,6 +233,71 @@
 									</td>
 								</tr>
 							</table>	
+						</div>
+						<div ng-if="contacto">
+							<div class="text-center">
+								<br>
+								<button ng-click="regresar()" class="btn btn-info btn-lg" value="Hide">Regresar</button>
+							</div>
+							<span><h1>¡Ya casi terminamos!</h1></span>
+							<h2>Estos fueron los elementos que seleccionaste:</h2>
+							<p>Es para 
+								<span ng-if="sexo==1">Unisex $10.000</span>
+								<span ng-if="sexo==2">Hombre $10.000</span>
+								<span ng-if="sexo==3">Mujer $10.000</span>
+							</p>
+							<p>Intensidad: {{tipoIntensidad}} $2.000</p>
+							<p>Fragancia: 
+								<span ng-if="fragancia==0">Ninguno</span>
+								<span ng-if="fragancia==1">Floral profundo $3.000</span>
+								<span ng-if="fragancia==2">Floral suave $3.000</span>
+								<span ng-if="fragancia==3">Frutal $3.000</span>
+								<span ng-if="fragancia==4">Aromático $3.000</span>
+								<span ng-if="fragancia==5">Cítrico $3.000</span>
+								<span ng-if="fragancia==6">Oriental $3.000</span>
+							</p>
+							<p>Flores: 
+								<span ng-if="tipoFlores.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="fruta in tipoFlores">
+									{{fruta}} $5.000
+								</li>
+							</p>
+							<p>Frutas: 
+								<span ng-if="tipoFrutas.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="fruta in tipoFrutas">
+									{{fruta}} $5.000
+								</li>
+							</p>
+							<p>Aromas verdes: 
+								<span ng-if="tipoHierbas.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="hierba in tipoHierbas">
+									{{hierba}} $5.000
+								</li>
+							</p>
+							<p>Otros aromas: 
+								<span ng-if="tipoDiversos.length==0">Ninguno</span>
+								<li class="animate-repeat" ng-repeat="diverso in tipoDiversos">
+									{{diverso}} $5.000
+								</li>
+							</p>
+							<p>Tu Estilo: 
+								<span ng-if="estilo==0">Ninguno</span>
+								<span ng-if="estilo==7">Natural $3.000</span>
+								<span ng-if="estilo==1">Contemporaneo $3.000</span>
+								<span ng-if="estilo==2">Rudo $3.000</span>
+								<span ng-if="estilo==3">Cool $3.000</span>
+								<span ng-if="estilo==4">Alegre $3.000</span>
+								<span ng-if="estilo==5">Tímido $3.000</span>
+								<span ng-if="estilo==6">Versatil $3.000</span>
+							</p>
+							<p>
+								<span>{{nombrePerfume}} {{valorPerfume | currency}}</span>
+							</p>
+							<h3>Total: {{totalPerfume | currency}}</h3>
+							<br>
+							<div class="text-center">
+								<button ng-click="finalizar()" class="btn btn-success btn-lg" value="Hide">Terminar</button>
+							</div>	
 						</div>
 						<div ng-if="finalPerfume">
 							<div class="text-center">

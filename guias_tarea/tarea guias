@@ -1,0 +1,55 @@
+GUIA 1:
+¿Cómo debo colocar la imagen en una pagina web?
+usando la etiqueta <img/> y en el elemento src colocar la dirección de ubicacion de la imagen. También se puede indicar el tamaño de la imagen con los elementos width y height.
+
+¿Cuáles son los tipos de formatos de imágenes que puedo utilizar?
+Los formatos son JPEG, GIF Y PNG.
+
+¿Qué cualidades tiene el codigo de insertar una imagen en HTML?
+Se puede poner un tamaño deseado con los elementos heiht y witdh, tambien se le pueden dar dar estilos y en el elemento alt podemos colar textos descriptivos que ayudan a entender la página a personas con discapcidad visual.
+
+
+GUIA 2
+¿Cómo debo colocar la tabla en una pagina web?
+se debe usar la etiqueta de inicio <table> y la etiqueta de cierre </table>
+
+¿Cuáles son las etiquetas para crear una tabla en html?
+etiqueta <table></table> para crear una tabla.
+etiqueta <tr></tr> para crear las filas.
+etiqueta <td></td> para crear las columnas dentro de las filas.
+
+¿Qué cualidades tiene el código de una tabla en html?
+En una tabla html se puede dar el tamaño deseado a la tabla o cada elemento dentro de la tabla. También se pueden combinar filas o columnas para darle la forma que se quiere a cada espacio y en una tabla se puede insertar desde texto, imágenes, vídeos o hasta iframes.
+
+GUIA 3
+¿Cómo debo utilizar un iframe?
+Se debe utilizar cuando se quiere mostrar contenido de otra página web dentro de una página web ya construida.
+
+¿Cuáles son las características de un iframe?
+En un iframe se puede visualizar contenido de otras páginas web dentro de una que página web padre.En el iframe se puede dar el tamaño deseado con los elementos width y heihgt y en el src se debe incuir la dirección del contenido externo que queremos mostrar.
+
+¿cómo debo aplicar un iframe en una página web?
+El iframe debe tener una etiqueta inicio <iframe> y la etiqueta de cierre </iframe>. Ademas es necesario el elemento src que contenga la dirección del contenido que queremos msotrar. Si también debemos cambiar el tamaño del iframe lo podemos hacer con los elementos height y witdh.
+
+GUIA 4
+¿Qué es un button?
+Es el elemento que crea botones en HTML que tienen como finalidad realizar una acción dentro de la pagina web.
+
+¿Cuáles son las caracterísiticas de un button?
+- Los botones generalemnte inician un script de comandos.
+-Pulsar el botón de envío en un correo electrónico no es mas que usar un atajo.
+-La acción envía un comando pre formateado al servidor de correo.
+-El botón es un atajo conveniente pero solo a los ojos del usuario.
+-Los botones podrían ser visualmente únicos, agentes autónomos de una tarea específica.
+-Funcionan mejor cuando la esencia de la tarea puede ser comunicada mediante una palabra o un simple símbolo.
+-Un enlace de texto puede incorporar muchas de las mismas características que un botón, pero el punto conflictivo será cuando queramos incorporar una frase.
+
+¿Cómo debo aplicar un button en una página web?
+se debe usar la etiqueta de inicio <button> y la etiqueta de cierre </button>, ademas en el button, se pueden insertar una gran variedad de estilos para que tenga un comportamiento visual agradable para el usuario. Dentro podemos poner texto que le indique a una persona qué hace el button.
+
+
+
+
+
+
+
