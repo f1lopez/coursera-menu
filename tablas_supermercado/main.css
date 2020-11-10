@@ -1,0 +1,14 @@
+.img-logo {
+    height: 100px;
+    position: absolute;
+}
+.img-catalogo {
+    height: 200px;
+}
+.img-catalogo-frasco {
+    height: 300px;
+    margin: 0 16px 16px 16px;
+}
+table, th, td {
+    border: 1px solid black;
+  }

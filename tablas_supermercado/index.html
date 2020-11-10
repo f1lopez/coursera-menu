@@ -1,0 +1,204 @@
+<html ng-app="MyApp">
+	<head>
+	<title>Súper Mercado</title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+	<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+	<script src="main.js"></script>
+	<link rel="stylesheet" href="main.css">
+	
+	</head>
+	
+	<body ng-controller="simulador">	
+
+	<div class="container">
+		<h1 class="text-center">Súper Mercado</h1>
+		<hr>
+		<span class="lead text-info"></span>
+		<ul class="nav nav-tabs">
+			<li ng-click="tab_uno(1)" id="tab_1" class="active"><a href="#view-1">Registrar cliente</a></li>
+			<li ng-click="tab_uno(2)" id="tab_2"><a href="#view-2">Ver clientes</a></li>
+			<li ng-click="tab_uno(3)" id="tab_3"><a  href="#view-3">Registrar productos</a></li>
+			<li ng-click="tab_uno(4)" id="tab_4"><a  href="#view-4">Ver productos</a></li>
+			<li ng-click="tab_uno(5)" id="tab_5"><a  href="#view-5">Registrar venta</a></li>
+			<li ng-click="tab_uno(6)" id="tab_6"><a  href="#view-6">Ver factura</a></li>
+		</ul>
+
+		<section class="container views">
+            <div class="row">
+				<!--Vista o pantalla Contáctenos -->
+                <article style="display: block;" id="view-1" class="dish col-xs-12">
+					<h1>Formulario de registro de Clientes</h1>
+					<input type="text" size="20" id="nombreCliente" ng-model="nombreCliente" placeholder="Nombres"><br><br>
+					<input type="text" size="20" id="apellidoCliente" ng-model="apellidoCliente" placeholder="Apellidos"><br><br>
+					<input type="text" size="10" id="documentoCliente" ng-model="documentoCliente" placeholder="Documento"><br><br>
+					<input type="text" size="10" id="telefonoCliente" ng-model="telefonoCliente" placeholder="Celular"><br><br>
+					<input type="email" size="15" id="correoCliente" ng-model="correoCliente" placeholder="Correo"><br><br>
+					<label for="sexoSelect">Seleccione el sexo</label>
+					<select name="sexoSelect" id="sexoSelect"  ng-model="sexoSelect" ng-options="sexo.nombre for sexo in tipoSexo">
+					</select><br><br>
+					<label for="ciudadSelect">Seleccione la ciudad</label>
+					<select name="ciudadSelect" id="ciudadSelect"  ng-model="ciudadSelect" ng-options="ciudad.nombre for ciudad in tipoCiudad">
+					</select><br><br>
+					<div class="text-center">
+						<button ng-click="registrarCliente()" class="btn btn-success btn-lg" value="Hide">Registrar</button>
+					</div>
+				</article>
+				<!--Vista o pantalla A cerca de nostros -->
+                <article style="display: none;" id="view-2" class="dish col-xs-12">
+					<h1>Tabla de clientes</h1>
+					<table>
+						<thead>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Cédula</th>
+							<th>Celular</th>
+							<th>Sexo</th>
+							<th>Ciudad</th>
+							<th>Correo</th>
+						</thead>
+						<tr ng-repeat="cliente in clientes">
+							<td>{{cliente.id}}</td>
+							<td>{{cliente.nombre}}</td>
+							<td>{{cliente.apellido}}</td>
+							<td>{{cliente.documento}}</td>
+							<td>{{cliente.celular}}</td>
+							<td>{{cliente.sexo.nombre}}</td>
+							<td>{{cliente.ciudad.nombre}}</td>
+							<td>{{cliente.correo}}</td>
+						</tr>						
+					</table>
+				</article>
+				<!--Vista o pantalla Diséñalo tu mismo -->
+				<article style="display: none;" id="view-3" class="dish col-xs-12">
+					<h1>Formulario de registro de Productos</h1>
+					<input type="text" size="20" id="referenciaProducto" ng-model="referenciaProducto" placeholder="Referencia"><br><br>
+					<input type="text" size="20" id="nombreProducto" ng-model="nombreProducto" placeholder="Nombre"><br><br>
+					<input type="number" size="20" id="valorProducto" ng-model="valorProducto" placeholder="Valor"><br><br>
+					<textarea name="descripcionProducto" rows="10" cols="50" ng-model="descripcionProducto" placeholder="Descripción del producto"></textarea>
+					<br>
+					<div class="text-center">
+						<button ng-click="registrarProducto()" class="btn btn-success btn-lg" value="Hide">Registrar</button>
+					</div>
+				</article>
+				<!--Vista o pantalla Catalogo -->
+				<article style="display: none;" id="view-4" class="dish col-xs-12">
+					<h1>Tabla de productos</h1>
+					<table>
+						<thead>
+							<th>Id</th>
+							<th>Referencia</th>
+							<th>Nombre</th>
+							<th>Valor</th>
+							<th>Descripción</th>
+						</thead>
+						<tr ng-repeat="producto in productos">
+							<td>{{producto.id}}</td>
+							<td>{{producto.referencia}}</td>
+							<td>{{producto.nombre}}</td>
+							<td>{{producto.valor}}</td>
+							<td>{{producto.descripcion}}</td>
+						</tr>						
+					</table>
+				</article>
+				<!--Vista o pantalla Contáctenos -->
+                <article style="display: none;" id="view-5" class="dish col-xs-12">
+					<h1>Registro de facturas</h1>
+					<h3>Factura de venta # {{facturas.length + 1 }}</h3>
+					<h3>Super Mercado Valentina</h3>
+					<label for="ciudadSelect">Seleccione la ciudad donde se hace la compra</label>
+					<select name="ciudadSelect" id="ciudadSelect"  ng-model="ciudadSelectCompra" ng-options="ciudad.nombre for ciudad in tipoCiudad"><br><br>
+					</select><br><br>
+					<label for="clienteSelect">Seleccione el cliente</label>
+					<select name="clienteSelect" id="clienteSelect"  ng-model="clienteSelectCompra" ng-options="cliente.nombre + ' ' + cliente.apellido for cliente in clientes">
+					</select><br><br>
+					<label for="productoSelect">Seleccione el producto</label>
+					<select name="productoSelect" id="productoSelect"  ng-model="productoSelect" ng-options="producto.nombre + ' ' + producto.valor for producto in productos">
+					</select>
+					<input type="number" size="3" id="cantidadCompra" ng-model="cantidadCompra" placeholder="Cantidad">
+					<button ng-click="agregarProducto()" class="btn btn-success btn-xs">Agregar</button><br>
+					<div ng-if="productoComprado.length > 0"><span>Tu selección: </span><br>
+					<table>
+						<thead>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>Valor unitario</th>
+							<th>Valor total</th>
+							<th>Valor IVA</th>
+							<th>Quitar</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="producto in productoComprado">
+								<td>{{producto.nombre}}</td>
+								<td>{{producto.cantidad}}</td>
+								<td>{{producto.valor | currency}}</td>
+								<td>{{producto.valorTotal | currency}}</td>
+								<td>{{producto.iva | currency}}</td>
+								<td><button ng-click="quitarProducto(producto.id, producto.valorConIva, producto.iva, producto.valorTotal)" class="btn btn-danger btn-xs">Quitar</button></td>
+							</tr>
+						</tbody>
+					</table>
+					</div><br>
+					<h3>Sub total Factura:{{valorSubFactura | currency}}</h3>
+					<h3>Valor IVA: {{valorIva | currency}}</h3>
+					<h2>Valor Factura: {{valorFactura | currency}}</h2>
+					<div class="text-center">
+						<button ng-click="registrarFactura()" class="btn btn-success btn-lg" value="Hide">Registrar</button>
+					</div>
+				</article>
+				<!--Vista o pantalla Contáctenos -->
+                <article style="display: none;" id="view-6" class="dish col-xs-12">
+					<h1>Tabla de facturas</h1>
+					<table>
+						<thead>
+							<th>Num Factura</th>
+							<th>Ciudad</th>
+							<th>Almacen</th>
+							<th>Cliente</th>
+							<th>Documento</th>
+							<th>Productos</th>
+							<th>Subtotal</th>
+							<th>Iva</th>
+							<th>total</th>
+						</thead>
+						<tr ng-repeat="factura in facturas">
+							<td>{{factura.numero}}</td>
+							<td>{{factura.ciudad.nombre}}</td>
+							<td>{{factura.super}}</td>
+							<td>{{factura.cliente.nombre}} {{factura.cliente.apellido}}</td>
+							<td>{{factura.cliente.documento}}</td>
+							<td>
+								<table>
+									<thead>
+										<th>Producto</th>
+										<th>Cantidad</th>
+										<th>Valor unitario</th>
+										<th>Valor total</th>
+										<th>Valor IVA</th>
+									</thead>
+									<tbody>
+										<tr ng-repeat="producto in factura.productos">
+											<td>{{producto.nombre}}</td>
+											<td>{{producto.cantidad}}</td>
+											<td>{{producto.valor | currency}}</td>
+											<td>{{producto.valorTotal | currency}}</td>
+											<td>{{producto.iva | currency}}</td></tr>
+									</tbody>
+								</table>
+							</td>
+							<td>{{factura.subTotal | currency}}</td>
+							<td>{{factura.iva | currency}}</td>
+							<td>{{factura.valorTotal | currency}}</td>
+						</tr>						
+					</table>
+				</article>
+				<br>
+				<span>{{mensaje}}</span>
+            </div>
+        </section>
+		<br><br>
+		<p class="text-center">&copy; Súper Mercado</p>
+    </div>
+	</body>
+</html>
